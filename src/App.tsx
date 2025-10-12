@@ -22,7 +22,7 @@ const App = () => {
   {
     title:'Ract',
     url: 'http://react.dev/',
-    author: 'Jordan Walke',
+    author: 'Jordan Walker',
     num_comments: 3,
     points: 4,
     objectID: 0,
@@ -37,9 +37,13 @@ const App = () => {
   }
 ]
 
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target.value);    
+  }
+
   return (
     <div>
-      <h1>Hello React</h1>
+      <h1>My Hacker Stories</h1>
 
       <Search/>
 
