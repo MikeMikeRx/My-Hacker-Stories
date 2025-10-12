@@ -9,6 +9,10 @@ type Story = {
   objectID: number,
 }
 
+type SearchProps = {
+  onSearch: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
 type ListProps ={
   list: Story[]
 }
