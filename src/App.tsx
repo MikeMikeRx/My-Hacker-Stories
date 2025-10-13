@@ -24,7 +24,7 @@ type ItemProps ={
 const App = () => {
   const stories: Story[] = [
   {
-    title:'Ract',
+    title:'React',
     url: 'http://react.dev/',
     author: 'Jordan Walker',
     num_comments: 3,
@@ -59,7 +59,7 @@ const App = () => {
 
       <hr />
 
-      <List list={stories}/>
+      <List list={searchedStories}/>
     </div>
   )
 }
