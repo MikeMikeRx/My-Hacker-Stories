@@ -19,7 +19,11 @@ type ListProps ={
 }
 
 type ItemProps ={
-  item: Story
+  title: string
+  url: string
+  author: string
+  num_comments: number
+  points: number
 }
 
 const App = () => {
@@ -81,7 +85,14 @@ const Search = ({ search, onSearch }: SearchProps) => {
 const List = ({ list }:ListProps) => (
   <ul>
     {list.map((item) => (
-      <Item key={item.objectID} item={item}/>
+      <Item 
+        key={item.objectID}
+        title={item.title}
+        url={item.url}
+        author={item.author}
+        num_comments={item.num_comments}
+        points={item.points}
+      />
     ))}
   </ul>
 )
