@@ -11,10 +11,10 @@ type Story = {
 
 type InputWithLabelProps = {
   id: string
-  label: string
   value: string
   type?: string
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  children: React.ReactNode
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void  
 }
 
 type ListProps ={
@@ -76,10 +76,11 @@ const App = () => {
 
       <InputWithLabel
         id="search"
-        label="Search: "
         value={searchTerm}
         onInputChange={handleSearch}
-      />
+      >
+        <strong>Search: </strong>
+      </InputWithLabel>
 
       <hr />
 
@@ -90,13 +91,13 @@ const App = () => {
 
 const InputWithLabel = ({ 
   id,
-  label,
   value,
   type = 'text',
+  children,
   onInputChange,
 }: InputWithLabelProps) =>  (
     <>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>{children}</label>
       <input 
         id={id} 
         type={type}
