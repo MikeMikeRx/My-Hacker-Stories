@@ -82,10 +82,10 @@ const Search = ({ search, onSearch }: SearchProps) => {
   )
 }
 
-const List = ({ list }:ListProps) => (
+const List = ({ list }: ListProps) => (
   <ul>
-    {list.map((item) => (
-      <Item key={item.objectID} {...item} />
+    {list.map(({ objectID, ...item }) => (
+      <Item key={objectID} {...item} />
     ))}
   </ul>
 )
