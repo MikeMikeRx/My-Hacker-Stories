@@ -97,14 +97,14 @@ const List = ({ list }:ListProps) => (
   </ul>
 )
 
-const Item = ({ item }: ItemProps) => (
+const Item = ({ title, url, author, num_comments, points }: ItemProps) => (
   <li>
     <span>
-      <a href={item.url}>{item.title}</a>
+      <a href={url}>{title}</a>
     </span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
+    <span>{author}</span>
+    <span>{num_comments}</span>
+    <span>{points}</span>
   </li>
 )
 
