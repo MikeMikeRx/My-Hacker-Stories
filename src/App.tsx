@@ -10,6 +10,7 @@ type Story = {
 }
 
 type SearchProps = {
+  search: string
   onSearch: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
