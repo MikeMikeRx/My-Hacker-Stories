@@ -78,9 +78,9 @@ const Search = ({ search, onSearch }: SearchProps) => {
   )
 }
 
-const List = (props: ListProps) => (
+const List = ({ list }:ListProps) => (
   <ul>
-    {props.list.map((item) => (
+    {list.map((item) => (
       <Item key={item.objectID} item={item}/>
     ))}
   </ul>
