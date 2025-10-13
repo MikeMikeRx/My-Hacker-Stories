@@ -43,8 +43,8 @@ const App = () => {
 
   const [searchTerm, setSearchTerm] = React.useState("")
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);    
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>):void => {
+    setSearchTerm(event.target.value)   
   }
 
   return (
