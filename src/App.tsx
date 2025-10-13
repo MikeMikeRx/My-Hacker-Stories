@@ -60,26 +60,13 @@ const App = () => {
   )
 }
 
-const Search = (props: SearchProps) => {
-  const handleChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) =>{
-    setSearchTerm(event.target.value)
-
-    props.onSearch(event)
-  }
-
-  return (
+const Search = (props: SearchProps) => (
     <div>
       <label htmlFor="search">Search: </label>
-      <input id="search" type="text" onChange={handleChange}/>
-
-      <p>
-        Searching for: <strong>{searchTerm}</strong>
-      </p>
+      <input id="search" type="text" onChange={props.onSearch}/>
     </div>    
-  )
-}
+)
+
 
 const List = (props: ListProps) => (
   <ul>
