@@ -44,8 +44,12 @@ const App = () => {
   const [searchTerm, setSearchTerm] = React.useState("")
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>):void => {
-    setSearchTerm(event.target.value)   
+    setSearchTerm(event.target.value)
   }
+
+  const searchedStories: Story[] = stories.filter((story) =>
+    story.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <div>
@@ -66,7 +70,6 @@ const Search = (props: SearchProps) => (
       <input id="search" type="text" onChange={props.onSearch}/>
     </div>    
 )
-
 
 const List = (props: ListProps) => (
   <ul>
