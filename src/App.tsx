@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const stories: Story[] = [
+const initialStories: Story[] = [
   {
     title:'React',
     url: 'http://react.dev/',
@@ -62,6 +62,8 @@ const App = () => {
     'search',
     'React'
   )
+  
+  const [stories, setStories] = React.useState<Story[]>(initialStories)
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(event.target.value)    
