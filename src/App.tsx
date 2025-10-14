@@ -71,10 +71,15 @@ const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
   )
 
 const storiesReducer = (state: StoriesState, action: StoriesAction) => {
-  if (action.type === 'SET_STORIES') {
-    return action.payload
-  } else {
-    throw new Error()
+  switch (action.type) {
+    case 'SET_STORIES':
+      return action.payload
+    case 'REMOVE_STORY':
+      return state.filter(
+        (story: Story) => action.payload.objectID !== story.objectID
+      )
+    default:
+      throw new Error()
   }
 }  
 
