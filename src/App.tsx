@@ -13,6 +13,7 @@ type InputWithLabelProps = {
   id: string
   value: string
   type?: string
+  isFocused: boolean
   children: React.ReactNode
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void  
 }
@@ -77,6 +78,7 @@ const App = () => {
       <InputWithLabel
         id="search"
         value={searchTerm}
+        isFocused
         onInputChange={handleSearch}
       >
         <strong>Search: </strong>
@@ -94,6 +96,7 @@ const InputWithLabel = ({
   value,
   type = 'text',
   children,
+  isFocused,
   onInputChange,
 }: InputWithLabelProps) =>  (
     <>
@@ -101,7 +104,8 @@ const InputWithLabel = ({
       <input 
         id={id} 
         type={type}
-        value={value} 
+        value={value}
+        autoFocus={isFocused} 
         onChange={onInputChange}/>
     </>    
   )
