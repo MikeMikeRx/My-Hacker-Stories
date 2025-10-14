@@ -86,6 +86,7 @@ const App = () => {
       setStories(result.data.stories)
       setIsLoading(false)
     })
+    .catch(() => setIsError(true))
   }, [])
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
