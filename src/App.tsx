@@ -75,6 +75,12 @@ const App = () => {
   
   const [stories, setStories] = React.useState<Story[]>([])
 
+  React.useEffect(() => {
+    getAsyncStories().then((result) => {
+      setStories(result.data.stories)
+    })
+  }, [])
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(event.target.value)    
   }
