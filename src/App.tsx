@@ -49,10 +49,17 @@ type ItemProps = {
 
 type StoriesState = Story[]
 
-type StoriesAction = {
+type StoriesSetAction = {
   type: 'SET_STORIES'
   payload: Story[]
 }
+
+type StoriesRemoveAction = {
+  type: 'REMOVE_STORY'
+  payload: Story
+}
+
+type StoriesAction = StoriesSetAction | StoriesRemoveAction
 
 //Fetch simulation
 const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
@@ -89,7 +96,10 @@ const App = () => {
     'React'
   )
   
-  const [stories, setStories] = React.useState<Story[]>([])
+  const [stories, dispatchStories] = React.useReducer(
+    storiesReducer,
+    []
+  )
   const [isLoading, setIsLoading] = React.useState(false)
   const [isError, setIsError] = React.useState(false)
 
@@ -98,7 +108,10 @@ const App = () => {
 
     getAsyncStories()
     .then((result) => {
-      setStories(result.data.stories)
+      dispatchStories({
+        type:'SET_STORIES',
+        payload: result.data.stories
+      })
       setIsLoading(false)
     })
     .catch(() => setIsError(true))
@@ -113,8 +126,10 @@ const App = () => {
   )
 
   const handleRemoveStory = (item: Story) => {
-    const newStories = stories.filter((story) => item.objectID !== story.objectID)
-    setStories(newStories)
+    dispatchStories({
+      type: 'REMOVE_STORY',
+      payload: item,
+    })
   }
 
   return (
