@@ -76,6 +76,7 @@ const App = () => {
   
   const [stories, setStories] = React.useState<Story[]>([])
   const [isLoading, setIsLoading] = React.useState(false)
+  const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     setIsLoading(true)
