@@ -52,6 +52,14 @@ const useStorageState = (key: string, initialState: string) => {
     localStorage.getItem(key) || initialState
   )
 
+const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
+  new Promise((resolve) =>
+    setTimeout(
+      () => resolve({ data: { stories: initialStories } }),
+      2000
+    )
+  )
+
   React.useEffect(() => {
     localStorage.setItem(key, value)
   }, [value, key])
