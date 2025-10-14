@@ -73,6 +73,11 @@ const App = () => {
     story.title.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
+  const handleRemoveStory = (item: Story) => {
+    const newStories = stories.filter((story) => item.objectID !== story.objectID)
+    setStories(newStories)
+  }
+
   return (
     <div>
       <h1>My Hacker Stories</h1>
