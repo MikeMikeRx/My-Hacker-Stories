@@ -47,6 +47,13 @@ type ItemProps = {
   onRemoveItem:(item: Story) => void
 }
 
+type StoriesState = Story[]
+
+type StoriesAction = {
+  type: 'SET_STORIES'
+  payload: Story[]
+}
+
 //Fetch simulation
 const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
   new Promise((resolve) =>
@@ -55,6 +62,14 @@ const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
       2000
     )
   )
+
+const storiesReducer = (state: StoriesState, action: StoriesAction) => {
+  if (action.type === 'SET_STORIES') {
+    return action.payload
+  } else {
+    throw new Error()
+  }
+}  
 
 const useStorageState = (key: string, initialState: string) => {
   const [value, setValue] = React.useState(
