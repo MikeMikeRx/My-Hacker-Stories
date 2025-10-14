@@ -1,5 +1,24 @@
 import * as React from 'react'
 
+const stories: Story[] = [
+  {
+    title:'React',
+    url: 'http://react.dev/',
+    author: 'Jordan Walker',
+    num_comments: 3,
+    points: 4,
+    objectID: 0,
+  },
+  {
+    title:'Redux',
+    url: 'http://redux.js.org/',
+    author: 'Dan Abramov, Adrew Clark',
+    num_comments: 2,
+    points: 5,
+    objectID: 1,
+  }
+]
+
 type Story = {
   title: string,
   url: string,
@@ -39,25 +58,6 @@ const useStorageState = (key: string, initialState: string) => {
 }
 
 const App = () => {
-  const stories: Story[] = [
-  {
-    title:'React',
-    url: 'http://react.dev/',
-    author: 'Jordan Walker',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-  },
-  {
-    title:'Redux',
-    url: 'http://redux.js.org/',
-    author: 'Dan Abramov, Adrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  }
-]
-
   const [searchTerm, setSearchTerm] = useStorageState(
     'search',
     'React'
@@ -106,7 +106,7 @@ const InputWithLabel = ({
       inputRef.current.focus()
     }
   }, [isFocused])
-  
+
   return (
     <>
       <label htmlFor={id}>{children}</label>
