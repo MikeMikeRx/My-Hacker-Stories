@@ -39,6 +39,7 @@ type InputWithLabelProps = {
 
 type ListProps ={
   list: Story[]
+  onRemoveItem:(item: Story) => void
 }
 
 type ItemProps = {
@@ -93,7 +94,7 @@ const App = () => {
 
       <hr />
 
-      <List list={searchedStories}/>
+      <List list={searchedStories} onRemoveItem={handleRemoveStory} />
     </div>
   )
 }
