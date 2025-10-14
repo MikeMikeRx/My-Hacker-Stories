@@ -73,7 +73,7 @@ const App = () => {
     'React'
   )
   
-  const [stories, setStories] = React.useState<Story[]>(initialStories)
+  const [stories, setStories] = React.useState<Story[]>([])
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchTerm(event.target.value)    
