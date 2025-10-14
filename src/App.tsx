@@ -47,6 +47,7 @@ type ItemProps = {
   onRemoveItem:(item: Story) => void
 }
 
+//Fetch simulation
 const getAsyncStories = (): Promise<{ data: { stories: Story[] } }> =>
   new Promise((resolve) =>
     setTimeout(
@@ -74,6 +75,7 @@ const App = () => {
   )
   
   const [stories, setStories] = React.useState<Story[]>([])
+  const [isLoading, setIsLoading] = React.useState(false)
 
   React.useEffect(() => {
     getAsyncStories().then((result) => {
