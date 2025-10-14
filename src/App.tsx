@@ -44,6 +44,7 @@ type ListProps ={
 
 type ItemProps = {
   item: Story;
+  onRemoveItem:(item: Story) => void
 }
 
 const useStorageState = (key: string, initialState: string) => {
@@ -138,7 +139,7 @@ const List = ({ list }: ListProps) => (
   </ul>
 )
 
-const Item = ({ item }: ItemProps) => (
+const Item = ({ item, onRemoveItem }: ItemProps) => (
   <li>
     <span>
       <a href={item.url}>{item.title}</a>
