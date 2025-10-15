@@ -121,16 +121,14 @@ const App = () => {
   )
 
   const handleFetchStories = React.useCallback(() => {
-    if (!searchTerm) return
-
     dispatchStories({ type: 'STORIES_FETCH_INIT' })
 
-    fetch(url)
-    .then((response) => response.json())
+    axios
+    .get(url)
     .then((result) => {
       dispatchStories({
         type:'STORIES_FETCH_SUCCESS',
-        payload: result.hits
+        payload: result.data.hits
       })
     })
     .catch(() => 
