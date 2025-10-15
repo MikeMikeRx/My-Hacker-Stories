@@ -1,4 +1,5 @@
 import * as React from 'react'
+import axios from 'axios'
 
 type Story = {
   title: string,
