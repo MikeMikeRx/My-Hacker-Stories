@@ -7,7 +7,7 @@ type Story = {
   author: string,
   num_comments: number,
   points: number,
-  objectID: number,
+  objectID: string,
 }
 
 type InputWithLabelProps = {
@@ -16,7 +16,7 @@ type InputWithLabelProps = {
   type?: string
   isFocused: boolean
   children: React.ReactNode
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void  
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 type ListProps ={
@@ -120,20 +120,19 @@ const App = () => {
     { data: [], isLoading: false, isError: false }
   )
 
-  const handleFetchStories = React.useCallback(() => {
+  const handleFetchStories = React.useCallback(async () => {
     dispatchStories({ type: 'STORIES_FETCH_INIT' })
 
-    axios
-    .get(url)
-    .then((result) => {
+    try {
+      const result = await axios.get<{hits: Story[]}>(url)
+
       dispatchStories({
         type:'STORIES_FETCH_SUCCESS',
         payload: result.data.hits
       })
-    })
-    .catch(() => 
+    } catch {
       dispatchStories({ type: 'STORIES_FETCH_FAILURE' })
-    )
+    } 
   }, [url])
 
   React.useEffect(() => {
@@ -148,7 +147,7 @@ const App = () => {
   }
 
   const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchTerm(event.target.value)    
+    setSearchTerm(event.target.value)
   }
 
   const handleSearchSubmit = () => {
@@ -185,14 +184,14 @@ const App = () => {
       ) : (
         <List 
           list={stories.data} 
-          onRemoveItem={handleRemoveStory} 
+          onRemoveItem={handleRemoveStory}
         />
       )}
     </div>
   )
 }
 
-const InputWithLabel = ({ 
+const InputWithLabel = ({
   id,
   value,
   type = 'text',
@@ -218,10 +217,9 @@ const InputWithLabel = ({
         value={value}
         autoFocus={isFocused} 
         onChange={onInputChange}/>
-    </>    
+    </>
   )
 }
-
 
 const List = ({ list, onRemoveItem }: ListProps) => (
   <ul>
