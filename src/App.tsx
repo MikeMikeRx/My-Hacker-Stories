@@ -1,5 +1,6 @@
 import * as React from 'react'
 import axios from 'axios'
+import './App.css'
 
 type Story = {
   title: string,
@@ -239,11 +240,20 @@ const InputWithLabel = ({
 }
 
 const List = ({ list, onRemoveItem }: ListProps) => (
-  <ul>
-    {list.map((item) => (
-      <Item key={item.objectID} item={item} onRemoveItem={onRemoveItem}/>
-    ))}
-  </ul>
+  <>
+    <div className="list-header">
+      <span>Title</span>
+      <span>Author</span>
+      <span>Comments</span>
+      <span>Points</span>
+      <span>Action</span>
+    </div>
+    <ul>
+      {list.map((item) => (
+        <Item key={item.objectID} item={item} onRemoveItem={onRemoveItem}/>
+      ))}
+    </ul>
+  </>
 )
 
 const Item = ({ item, onRemoveItem }: ItemProps) => (
