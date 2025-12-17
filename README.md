@@ -22,7 +22,6 @@ Hacker Stories A React + TypeScript application that fetches and displays trendi
 - Eslint for code quality
 
 ## Screenshots
-Search for React
 ![shot-1](./public/screenshots/shot-1.png)
-Search for Apple
-![shot-2](./public/screenshots/shot-2.png)
+
+![shot-2](./public/screenshots/shot-3.png)
