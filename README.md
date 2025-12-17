@@ -20,3 +20,9 @@ Hacker Stories A React + TypeScript application that fetches and displays trendi
 - Axios for HHTP request
 - Vite for building tooling
 - Eslint for code quality
+
+## Screenshots
+Search for React
+![shot-1](./public/screenshots/shot-1.png)
+Search for Apple
+![shot-2](./public/screenshots/shot-2.png)
