@@ -1,6 +1,6 @@
 # Hacker Stories
 
-Hacker Stories A React + TypeScript application that fetches and displays trending stories from Hacker News using the HN Algolia API. Built following modern React patterns with hooks, custom state management, and responsive UI design.
+A React application that fetches and displays trending stories from Hacker News using the HN Algolia API. Built following modern React patterns with hooks, custom state management, and responsive UI design.
 
 ## Features:
 - Real-time story search with persistent search terms (localStorage)

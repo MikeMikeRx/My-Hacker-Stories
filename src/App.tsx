@@ -2,6 +2,7 @@ import * as React from 'react'
 import axios from 'axios'
 import './App.css'
 
+// Type Definitions
 type Story = {
   title: string,
   url: string,
@@ -66,8 +67,10 @@ type StoriesAction =
   | StoriesFetchFailureAction
   | StoriesRemoveAction 
 
+// API endpoint
 const API_ENDPOINT = 'https://hn.algolia.com/api/v1/search?query='
 
+// Reducer function to manage stories state
 const storiesReducer = (state: StoriesState, action: StoriesAction) => {
   switch (action.type) {
     case 'STORIES_FETCH_INIT':
@@ -101,6 +104,7 @@ const storiesReducer = (state: StoriesState, action: StoriesAction) => {
   }
 }
 
+// Hook to persist state in localStorage
 const useStorageState = (key: string, initialState: string) => {
   const [value, setValue] = React.useState(
     localStorage.getItem(key) || initialState
@@ -113,6 +117,7 @@ const useStorageState = (key: string, initialState: string) => {
   return [value, setValue] as const
 }
 
+/* --------------- Main App Component --------------- */
 const App = () => {
   const [searchTerm, setSearchTerm] = useStorageState(
     'search',
@@ -188,6 +193,7 @@ const App = () => {
   )
 }
 
+/* --------------- Subcomponents --------------- */
 const SearchForm = ({
   searchTerm,
   onSearchInput,
@@ -209,6 +215,7 @@ const SearchForm = ({
   </form>
 )
 
+// Input component with label
 const InputWithLabel = ({
   id,
   value,
@@ -239,6 +246,7 @@ const InputWithLabel = ({
   )
 }
 
+// List component to display stories
 const List = ({ list, onRemoveItem }: ListProps) => (
   <>
     <div className="list-header">
@@ -256,6 +264,7 @@ const List = ({ list, onRemoveItem }: ListProps) => (
   </>
 )
 
+// Item component to display individual story
 const Item = ({ item, onRemoveItem }: ItemProps) => (
   <li>
     <span>
