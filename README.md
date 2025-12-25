@@ -13,10 +13,6 @@ https://hn.algolia.com/api
 - Reusable custom hooks for state persistence
 - Responsive UI
 
-**🔵 Note:** This project is based on *Road to React (2025 edition)*. 
-
-**🔵 Note:** I’m following the book step by step, implementing examples in **TypeScript** instead of plain JSX.
-
 ## Tech Stack
 - React 19
 - TypeScript
